@@ -10,11 +10,12 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 # Load your trained model, tokenizer, and label encoder
 from tensorflow.keras.models import load_model
+import joblib
 
 # Load model, tokenizer, and label encoder (ensure these are saved after training)
-model = load_model('path_to_your_trained_model.h5')  # Replace with your model path
-tokenizer = ...  # Load your tokenizer (you might save it with pickle)
-le = ...  # Load your label encoder (you might save it with pickle)
+model = load_model('sentiment_model.h5')  # Replace with your model path
+tokenizer = joblib.load('tokenizer.pkl') # Load your tokenizer (you might save it with pickle)
+le = joblib.load('label_encoder.pkl') # Load your label encoder (you might save it with pickle)
 
 nltk.download('punkt')
 nltk.download('stopwords')
